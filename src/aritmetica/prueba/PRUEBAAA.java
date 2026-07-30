@@ -1,4 +1,4 @@
-package prueba;
+package aritmetica.prueba;
 
 public class PRUEBAAA {
 }
