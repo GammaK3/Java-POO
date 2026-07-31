@@ -1,25 +1,36 @@
 package animales;
 
 public class Animal{
-    protected void comer (){
-        System.out.println("Como muchas veces al dia");
-    }
-    protected void dormir () {
-        System.out.println("Duermo muchas horas");
+    protected void hacerSonido(){
+        System.out.println("El animal hace un sonido");
     }
 }
 
 class Perro extends Animal{
-    public void hacerSonido(){
-        System.out.println("Puedo Ladrar");
+    @Override
+    protected void hacerSonido(){
+        System.out.println("El perro hace wauf");
+    }
+}
+
+class Gato extends Animal{
+    @Override
+    protected void hacerSonido(){
+        System.out.println("El gato hace miau");
     }
 }
 
 class PruebaAnimal{
-    public static void main(String[] args) {
-        System.out.println("***Ejemplo de herencia***");
-        System.out.println("Clase padre, soy un animal");
-        var animal1 = new Animal();
 
+    //Metodo polimorfico
+    static void imprimirSonido(Animal animal){
+        animal.hacerSonido();
+    }
+
+    public static void main(String[] args) {
+        //Objeto de la clase padre (animal)
+        //var animal = new Perro();
+        var animal = new Gato();
+        imprimirSonido(animal);
     }
 }

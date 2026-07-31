@@ -1,19 +1,26 @@
 package persona;
 
 public class Persona {
+    static int contadorPersonas = 0;
+    private int idPersonas;
     private String nombre;
     private String apellido;
 
-    public Persona(){
-    }
     public Persona(String nombre, String apellido){
         this.nombre= nombre;
         this.apellido = apellido;
+        //Incrementar el atributo estatico
+        //Persona.contadorPersonas++;
+        //Asignamos el id unico con ayuuda de la variable estatica
+        this.idPersonas = ++Persona.contadorPersonas;
     }
 
-    public void mostrarPersona (){
-        System.out.println("Nombre: " + this.nombre);
-        System.out.println("Apellido: " + this.apellido);
+    @Override
+    public String toString(){
+        return "ID: " + this.idPersonas
+                + " ,Nombre: " + this.nombre
+                + ", Apellido: " + this.apellido
+                + " Dir. Mem. " + super.toString();
     }
 
     public String getNombre(){
@@ -29,5 +36,9 @@ public class Persona {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public int getIdPersonas() {
+        return this.idPersonas;
     }
 }
